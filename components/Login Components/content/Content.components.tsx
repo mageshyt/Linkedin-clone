@@ -1,6 +1,4 @@
 import React from "react";
-import { AiOutlineRight } from "react-icons/ai";
-import { FcGoogle } from "react-icons/fc";
 import LeftContentComponents from "./LeftConten.components";
 import RightContentComponents from "./RightConten.components";
 const Content = () => {

@@ -1,17 +1,17 @@
 import type { NextPage } from "next";
 import { useSession } from "next-auth/react";
 import Head from "next/head";
-import Image from "next/image";
 import { useEffect } from "react";
+import Header from "../components/Header/Header";
 import { useUserStore } from "../context/createStore";
-import { undefined_user } from "../lib/data";
 import { User } from "../typing";
 
 const Home: NextPage = () => {
   const { data, status }: any = useSession();
   const setUser = useUserStore((state) => state.setUser);
+
   useEffect(() => {
-    const user: User = data?.user || undefined_user;
+    const user: User = data?.user || null;
     if (data) {
       //! add userId to user
       const id: any = user?.email?.split("@")[0];
@@ -23,13 +23,13 @@ const Home: NextPage = () => {
   }, [status]);
 
   return (
-    <div className="flex ">
+    <div className="flex h-screen bg-black w-full ">
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <h1>Linked in clone</h1>
+      {/* Header */}
+      <Header />
     </div>
   );
 };
