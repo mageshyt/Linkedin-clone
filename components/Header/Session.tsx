@@ -1,3 +1,4 @@
+import { signOut } from "next-auth/react";
 import { useRouter } from "next/router";
 import React from "react";
 import { AiFillHome, AiFillMessage } from "react-icons/ai";
@@ -6,8 +7,15 @@ import {
   BsFillBriefcaseFill,
   BsFillBellFill,
 } from "react-icons/bs";
-export const Session = ({ user, FaUser }: any) => {
+import { useUserStore } from "../../context/createStore";
+import Spinner from "../../lib/Spinner";
+export const Session = ({ FaUser }: any) => {
+  const sessionUser: any = useUserStore((state) => state.user);
+  if (!sessionUser) <Spinner message={"loading"} />;
+
   const router = useRouter();
+  const image = sessionUser?.image;
+  const name = sessionUser?.name;
   return (
     <div className="flex  space-x-4 justify-between h-full  items-end text-[#ffffff] text-opacity-75">
       <Icons name="Home" Icon={AiFillHome} />
@@ -16,14 +24,15 @@ export const Session = ({ user, FaUser }: any) => {
       <Icons name="Message" Icon={AiFillMessage} />
       <Icons name="Notification" Icon={BsFillBellFill} />
       {/* User */}
-      {user ? (
+      {sessionUser ? (
         <div className="center  h-full flex-col">
           <img
-            src={user?.image}
+            src={image}
+            onClick={() => signOut()}
             alt="user"
             className="h-8 w-8 rounded-full object-contain"
           />
-          <span className="text-sm hidden md:block">{user?.name}</span>
+          <span className="text-sm hidden md:block">{name}</span>
         </div>
       ) : (
         <div className=" cursor-pointer" onClick={() => router.push("/login")}>

@@ -4,14 +4,13 @@ import { useUserStore } from "../../context/createStore";
 import SearchBar from "./SearchBar";
 
 import { FaUser } from "react-icons/fa";
-import { useRouter } from "next/router";
+import { UseUser } from "../../hooks/UserHook";
 const styles = {
   wrapper:
     "w-full bg-[#1d2226]   justify-around flex items-center h-[65px] p-3",
 };
 
 const Header = () => {
-  const user = useUserStore((state) => state?.user);
   return (
     <div className={styles.wrapper}>
       <div className="flex  items-center space-x-3">
@@ -28,7 +27,7 @@ const Header = () => {
 
       {/* Sessions */}
       <div className="h-[60px] sm:w-auto w-[70%]">
-        <Session user={user} FaUser={FaUser} />
+        <Session FaUser={FaUser} />
       </div>
     </div>
   );
