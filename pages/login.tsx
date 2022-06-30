@@ -1,11 +1,16 @@
-import { signIn, signOut } from "next-auth/react";
 import React from "react";
-
+import Content from "../components/Login Components/content/Content.components";
+import LoginHeader from "../components/Login Components/LoginHeader";
+const styles = {
+  wrapper: "flex flex-col p-3 mx-auto max-w-[1200px]   ",
+};
 const login = () => {
   return (
-    <div>
-      <button onClick={() => signIn()}>Login</button>
-      <button onClick={() => signOut()}>Logout</button>
+    <div className={styles.wrapper}>
+      {/* Header */}
+      <LoginHeader />
+      {/* Content */}
+      <Content />
     </div>
   );
 };

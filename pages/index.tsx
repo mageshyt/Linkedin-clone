@@ -12,7 +12,6 @@ const Home: NextPage = () => {
   const setUser = useUserStore((state) => state.setUser);
   useEffect(() => {
     const user: User = data?.user || undefined_user;
-
     if (data) {
       //! add userId to user
       const id: any = user?.email?.split("@")[0];
@@ -22,7 +21,7 @@ const Home: NextPage = () => {
       setUser(user);
     }
   }, [status]);
-  
+
   return (
     <div className="flex ">
       <Head>
