@@ -2,6 +2,9 @@ export const post = {
   name: "post",
   title: "Post",
   type: "document",
+  initialValue: () => ({
+    createdAt: new Date().toISOString(),
+  }),
   fields: [
     {
       name: "title",
@@ -49,10 +52,17 @@ export const post = {
       name: "likes",
       title: "Likes",
       type: "number",
+      initialValue: 0,
     },
     {
-      name: "comments",
-      title: "Comments",
+      name: "isLiked",
+      title: "Is Liked",
+      type: "array",
+      of: [{ type: "isLiked" }],
+    },
+    {
+      name: "comment",
+      title: "Comment",
       type: "array",
       of: [{ type: "comment" }],
     },

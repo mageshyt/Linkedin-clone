@@ -8,14 +8,15 @@ import {
   BsFillBellFill,
 } from "react-icons/bs";
 import { useUserStore } from "../../context/createStore";
+import { UseUser } from "../../hooks/UserHook";
 import Spinner from "../../lib/Spinner";
+import { GetUser } from "../../lib/User.sanity";
 export const Session = ({ FaUser }: any) => {
-  const sessionUser: any = useUserStore((state) => state.user);
-  if (!sessionUser) <Spinner message={"loading"} />;
-
+  const user: any = UseUser();
+  console.log(user);
   const router = useRouter();
-  const image = sessionUser?.image;
-  const name = sessionUser?.name;
+  const image = user?.profile_img;
+  const name = user?.username;
   return (
     <div className="flex  space-x-4 justify-between h-full  items-end text-[#ffffff] text-opacity-75">
       <Icons name="Home" Icon={AiFillHome} />
@@ -24,7 +25,7 @@ export const Session = ({ FaUser }: any) => {
       <Icons name="Message" Icon={AiFillMessage} />
       <Icons name="Notification" Icon={BsFillBellFill} />
       {/* User */}
-      {sessionUser ? (
+      {user ? (
         <div className="center  h-full flex-col">
           <img
             src={image}
@@ -35,7 +36,7 @@ export const Session = ({ FaUser }: any) => {
           <span className="text-sm hidden md:block">{name}</span>
         </div>
       ) : (
-        <div className=" cursor-pointer" onClick={() => router.push("/login")}>
+        <div onClick={() => router.push("/login")}>
           <Icons name="Login" Icon={FaUser} />
         </div>
       )}

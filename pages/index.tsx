@@ -1,20 +1,20 @@
 import type { GetStaticProps, NextPage } from "next";
 import { useSession } from "next-auth/react";
 import Head from "next/head";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import FeedSession from "../components/Feed/FeedSession";
 import Header from "../components/Header/Header";
 import EventCard from "../components/sidebar/EventCard";
 import NewsCard from "../components/sidebar/NewsCard";
 import UserCard from "../components/sidebar/UserCard";
 import { useUserStore } from "../context/createStore";
+import { GetAllPost } from "../lib/post.sanity";
 import { CreateUser, GetUser } from "../lib/User.sanity";
 import { User } from "../typing";
 
 const Home: NextPage = () => {
   const { data, status }: any = useSession();
   const setUser = useUserStore((state) => state.setUser);
-
   useEffect(() => {
     const user: User = data?.user || null;
     if (data) {
@@ -37,8 +37,8 @@ const Home: NextPage = () => {
       {/* Header */}
       <Header />
       <main className="w-full  h-screen ">
-        <section className="p-3   max-w-[1300px] flex space-x-3 h-full  mx-auto">
-          <div className="space-y-4">
+        <section className="p-3   max-w-[1300px] flex space-x-3 h-full    mx-auto">
+          <div className="space-y-4 hidden  lg:block">
             <UserCard />
             <EventCard />
           </div>

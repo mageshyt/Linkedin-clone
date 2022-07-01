@@ -1,21 +1,22 @@
 import React, { useEffect } from "react";
 import { GetAllPost } from "../../lib/post.sanity";
-import PostBox from "./PostBox";
-import Posts from "./Posts";
+import PostBox from "../post/PostBox";
+import Posts from "../post/Posts";
 
 const FeedSession = () => {
   const [posts, setPosts] = React.useState([]);
+  const [refresh, setRefresh] = React.useState(false);
   useEffect(() => {
     const fetchPosts = async () => {
-      const result = await GetAllPost();
+      const result: any = await GetAllPost();
       setPosts(result);
     };
     fetchPosts();
-  }, []);
+  }, [refresh]);
   console.log(posts);
   return (
     <div className=" space-y-4 flex flex-col overflow-hidden rounded-xl h-full w-[600px] max-w-[700px]">
-      <PostBox />
+      <PostBox setRefresh={setRefresh} refresh={refresh} />
       <div className="  rounded-xl  overflow-y-scroll p-4 bg-[#1d2226] ">
         <div className="space-y-4 pb-10 overflow-hidden">
           {posts.map((post, index) => (

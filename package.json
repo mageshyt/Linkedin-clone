@@ -7,13 +7,19 @@
   },
   "dependencies": {
     "@sanity/client": "^3.3.2",
+    "antd": "^4.21.4",
+    "antd-img-crop": "^4.2.3",
     "next": "latest",
     "next-auth": "^4.7.0",
     "react": "18.1.0",
     "react-dom": "18.1.0",
+    "react-hook-form": "^7.33.1",
     "react-icons": "^4.4.0",
     "react-loader-spinner": "^5.1.5",
+    "react-modal": "^3.15.1",
+    "react-spinners": "^0.13.3",
     "react-timeago": "^7.1.0",
+    "react-toastify": "^9.0.5",
     "zustand": "^4.0.0-rc.1"
   },
   "devDependencies": {
