@@ -9,6 +9,20 @@ export const post = {
       type: "string",
     },
     {
+      name: "description",
+      title: "Description",
+      type: "text",
+    },
+    {
+      name: "createdAt",
+      title: "Created At",
+      type: "datetime",
+      options: {
+        dateFormat: "YYYY-MM-DD",
+        timeFormat: "HH:mm:ss",
+      },
+    },
+    {
       name: "image",
       title: "Image",
       type: "image",
@@ -40,7 +54,7 @@ export const post = {
       name: "comments",
       title: "Comments",
       type: "array",
-      of: [{ type: "reference", to: [{ type: "comment" }] }],
+      of: [{ type: "comment" }],
     },
   ],
 };

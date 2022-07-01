@@ -12,6 +12,8 @@ specifiers:
   react: 18.1.0
   react-dom: 18.1.0
   react-icons: ^4.4.0
+  react-loader-spinner: ^5.1.5
+  react-timeago: ^7.1.0
   tailwindcss: ^3.1.2
   typescript: 4.7.2
   zustand: ^4.0.0-rc.1
@@ -23,6 +25,8 @@ dependencies:
   react: 18.1.0
   react-dom: 18.1.0_react@18.1.0
   react-icons: 4.4.0_react@18.1.0
+  react-loader-spinner: 5.1.5_ef5jwxihqo6n7gxfmzogljlgcm
+  react-timeago: 7.1.0_react@18.1.0
   zustand: 4.0.0-rc.1_react@18.1.0
 
 devDependencies:
@@ -958,6 +962,24 @@ packages:
     resolution: {integrity: sha512-fSbvHeVYo/B5/L4VhB7sBA1i2tS8MkT0Hb9t2H1AVPkwGfVHLJCqyr2Py9dKMxsyM63Eng1GkdZfbWj+Fmv8Rg==}
     peerDependencies:
       react: '*'
+    dependencies:
+      react: 18.1.0
+    dev: false
+
+  /react-loader-spinner/5.1.5_ef5jwxihqo6n7gxfmzogljlgcm:
+    resolution: {integrity: sha512-kHSBa3pNPNzd3UGOiOsHCC33qx5bZA7IHKau+YSTVn36Jib4eBVx/TNMggudbzW5CTnRCbP5bnYU4ACAX3mA6g==}
+    peerDependencies:
+      react: ^16.0.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.0.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.1.0
+      react-dom: 18.1.0_react@18.1.0
+    dev: false
+
+  /react-timeago/7.1.0_react@18.1.0:
+    resolution: {integrity: sha512-rouF7MiEm55fH791Y8cg+VobIJgx8gtNJ+gjr86R4ZqO1WKPkXiXjdT/lRzrvEkUzsxT1exHqV2V+Zdi114H3A==}
+    peerDependencies:
+      react: ^16.0.0 || ^17.0.0 || ^18.0.0
     dependencies:
       react: 18.1.0
     dev: false

@@ -12,12 +12,12 @@ const FeedSession = () => {
     };
     fetchPosts();
   }, []);
-
+  console.log(posts);
   return (
-    <div className=" space-y-4 flex flex-col overflow-hidden rounded-xl h-full w-[700px] max-w-[700px]">
+    <div className=" space-y-4 flex flex-col overflow-hidden rounded-xl h-full w-[600px] max-w-[700px]">
       <PostBox />
-      <div className=" h-[750px] rounded-xl  overflow-y-scroll p-4 bg-[#1d2226] ">
-        <div className=" space-y-4 overflow-hidden  ">
+      <div className="  rounded-xl  overflow-y-scroll p-4 bg-[#1d2226] ">
+        <div className="space-y-4 pb-10 overflow-hidden">
           {posts.map((post, index) => (
             <Posts key={index} post={post} />
           ))}

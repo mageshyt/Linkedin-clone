@@ -2,11 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  /* font-family: "Roboto", sans-serif; */
-  /* background-color: #151515; */
-}
-
 @layer components {
   .center {
     @apply flex items-center justify-center;
@@ -14,6 +9,13 @@ body {
   .animate {
     @apply transform transition-all duration-150 ease-in;
   }
+}
+.filter-green {
+  filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg)
+    brightness(118%) contrast(119%);
+}
+svg {
+  color: white;
 }
 
 .shadow_btn:hover {
