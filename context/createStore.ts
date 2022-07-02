@@ -1,4 +1,3 @@
-import { undefined_user } from "./../lib/data";
 import create from "zustand";
 
 import { devtools, persist } from "zustand/middleware";

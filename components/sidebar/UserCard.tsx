@@ -1,12 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { UseUser } from "../../hooks/UserHook";
-import { customStyles, randomImage } from "../../lib/data";
-import { ToastContainer, toast } from "react-toastify";
-import Modal from "react-modal";
-import { useRouter } from "next/router";
-import Link from "next/link";
-import { Input } from "antd";
-import { SetUserBio } from "../../lib/User.sanity";
+import { randomImage } from "../../lib/data";
 import AddBio from "./Addbio";
 const UserCard = () => {
   const image = randomImage(); //! random image
@@ -14,11 +8,8 @@ const UserCard = () => {
   const userImage: any = user?.profile_img || "images/user.svg";
   const userName: any = user?.username;
 
-
-
   return (
     <div className="h-[300px] flex flex-col items-center  bg-[#1d2226] w-[220px] rounded-md">
-      <ToastContainer />
       <div className="center w-full flex-col">
         <img src={image} alt="user" className="rounded-t-xl h-[65px]  w-full" />
 
