@@ -33,3 +33,21 @@ export const GetUser = async (userId: string) => {
   const result = await client.fetch(query);
   return result[0];
 };
+
+//! to set user bio
+
+export const SetUserBio = async (userId: string, bio: string) => {
+  const doc = {
+    _type: "user",
+    _id: userId,
+    details: bio,
+  };
+  const result = await client
+    .patch(userId)
+    .set(doc)
+    .commit()
+    .then((res) => console.log("success ☘️"))
+    .then(() => window.location.reload())
+    .catch((err) => console.log(err));
+  return result;
+};

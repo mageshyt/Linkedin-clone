@@ -40,13 +40,13 @@ const UploadImage = ({ uploadImage }: any) => {
         <p className="font-bold -z-10 text-white text-xl">
           <AiOutlineCloudUpload />
         </p>
-        <span className="text-lg relative  w-full">
+        <span className="text-lg relative  cursor-pointer w-full">
           <p className="w-full  text-center">Click to upload </p>
           <input
             type="file"
             accept="image/*"
             onChange={(e) => uploadImage(e)}
-            className=" opacity-0 absolute top-1     h-full w-full"
+            className=" opacity-0 absolute top-1  cursor-pointer    h-full w-full"
           />
         </span>
       </div>

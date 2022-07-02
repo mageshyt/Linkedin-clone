@@ -11,7 +11,7 @@ interface FormData {
 
 const styles = {
   input:
-    "outline-none text-black  text-sm w-full font-medium border-b-2 border-gray-200 p-2",
+    "outline-none text-black rounded-xl  text-sm w-full font-medium border-b-2 border-gray-200 p-2",
 };
 
 const PostForm = ({ imageAsset }: any) => {
@@ -94,8 +94,8 @@ const PostForm = ({ imageAsset }: any) => {
           type="submit"
           className={
             loading
-              ? "bg-blue-500 hover:bg-blue-600  px-4 p-2 cursor-not-allowed"
-              : "bg-blue-500 hover:bg-blue-600  px-4 p-2 "
+              ? "bg-blue-500 hover:bg-blue-600 rounded-xl  px-4 p-2 cursor-not-allowed"
+              : "bg-blue-500 hover:bg-blue-600   rounded-xl px-4 p-2 "
           }
         >
           Submit

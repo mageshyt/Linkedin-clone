@@ -37,7 +37,7 @@ const Home: NextPage = () => {
       {/* Header */}
       <Header />
       <main className="w-full  h-screen ">
-        <section className="p-3   max-w-[1300px] flex space-x-3 h-full    mx-auto">
+        <section className="p-3   max-w-[1300px] flex space-x-3 h-full  justify-center   mx-auto">
           <div className="space-y-4 hidden  lg:block">
             <UserCard />
             <EventCard />

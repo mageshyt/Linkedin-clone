@@ -7,13 +7,9 @@ import {
   BsFillBriefcaseFill,
   BsFillBellFill,
 } from "react-icons/bs";
-import { useUserStore } from "../../context/createStore";
 import { UseUser } from "../../hooks/UserHook";
-import Spinner from "../../lib/Spinner";
-import { GetUser } from "../../lib/User.sanity";
 export const Session = ({ FaUser }: any) => {
   const user: any = UseUser();
-  console.log(user);
   const router = useRouter();
   const image = user?.profile_img;
   const name = user?.username;
@@ -31,7 +27,7 @@ export const Session = ({ FaUser }: any) => {
             src={image}
             onClick={() => signOut()}
             alt="user"
-            className="h-8 w-8 rounded-full object-contain"
+            className="h-8 w-8 rounded-full cursor-pointer object-contain"
           />
           <span className="text-sm hidden md:block">{name}</span>
         </div>

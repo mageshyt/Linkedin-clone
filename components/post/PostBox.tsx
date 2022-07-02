@@ -20,6 +20,7 @@ const PostBox = ({ setRefresh, refresh }: any) => {
   const router = useRouter();
   return (
     <div className="w-full h-[120px] space-y-3 items-center p-2 rounded-xl flex-col bg-[#1d2226]">
+      {/* Title */}
       <div className="flex  space-x-4 w-full">
         {image && (
           <img src={image} className="sm:h-12 sm:w-12 h-10 w-10 rounded-full" />
@@ -33,7 +34,7 @@ const PostBox = ({ setRefresh, refresh }: any) => {
           </span>
         </Link>
       </div>
-      <div className="flex w-full justify-around space-x-3">
+      <div className="flex w-full justify-around overflow-x-scroll space-x-3">
         <Icon name={"Image"} Icon={FcAddImage} />
         <Icon name={"Video"} Icon={FcVideoProjector} />
         <Icon name={"Calendar"} Icon={FcCalendar} />

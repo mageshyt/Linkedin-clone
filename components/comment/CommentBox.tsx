@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { UseUser } from "../../hooks/UserHook";
 import { AddComment } from "../../lib/post.sanity";
+import { ToastContainer, toast } from "react-toastify";
 interface Props {
   id: string;
   comments: [any];
@@ -13,14 +14,24 @@ const CommentBox = ({ id }: Props) => {
   const [loading, setLoading] = React.useState(false);
 
   const handleSubmit = async (id: string, comment: any, userId: string) => {
+    const load = toast.loading("Posting wait...");
     setLoading(true);
     AddComment(id, comment, userId);
 
     setLoading(false);
+    setTimeout(() => {
+      toast.update(load, {
+        render: "Successfully uploaded ,Click on the refresh button",
+        type: "success",
+        autoClose: 2000,
+        isLoading: false,
+      });
+    }, 2000);
   };
 
   return (
     <div className="px-4 ">
+      <ToastContainer />
       <div className="flex  space-x-4 w-full">
         <img src={image} className="w-12 h-12 rounded-full" />
         {/* input field */}

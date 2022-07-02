@@ -27,6 +27,7 @@ const PostModal = () => {
   };
   return (
     <div className="h-[500px] flex-col space-y-4 flex  items-center justify-around    w-[400px] lg:w-[500px] text-white rounded-xl p-3">
+      {/* Modal heading */}
       <UploadImageContainer
         loading={loading}
         uploadImage={uploadImage}

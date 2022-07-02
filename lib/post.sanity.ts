@@ -54,8 +54,9 @@ export const removeLike = async (id: string) => {
     .patch(id)
     .dec({ likes: 1 })
     .commit()
-    .then(() => console.log("success"))
+    .then((res) => console.log("success ☘️"))
     .catch((err) => console.log(err));
+
   return res;
 };
 

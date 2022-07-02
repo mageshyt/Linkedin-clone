@@ -1,16 +1,17 @@
 import React, { useRef } from "react";
-import { AiOutlineLike } from "react-icons/ai";
+import { AiOutlineLike, AiFillDislike } from "react-icons/ai";
 import { FaRegCommentDots, FaShare } from "react-icons/fa";
 import { FiSend } from "react-icons/fi";
 import TimeAgo from "react-timeago";
 import { UseUser } from "../../hooks/UserHook";
-import { AddComment, AddLike } from "../../lib/post.sanity";
+import { AddComment, AddLike, removeLike } from "../../lib/post.sanity";
 import CommentBox from "../comment/CommentBox";
 import Comments from "../comment/comments.components";
 import Icon from "../Feed/Icons";
 const Posts = ({ post }: any) => {
   const [active, setActive] = React.useState(false);
   const user: any = UseUser();
+  const [like, setLike] = React.useState(false);
 
   return (
     <div className=" flex flex-col  space-y-3 ">
@@ -54,6 +55,8 @@ const Posts = ({ post }: any) => {
         setActive={setActive}
         id={post?._id}
         curr_user={user?._id}
+        like={like}
+        setLike={setLike}
       />
       {active && <CommentBox comments={post?.comment} id={post?._id} />}
       {active && (
@@ -68,6 +71,7 @@ const Posts = ({ post }: any) => {
 };
 
 export default Posts;
+
 interface Props {
   likes: number;
   comments: number;
@@ -83,12 +87,38 @@ const PostInfoCard = ({ likes, comments }: Props) => {
   );
 };
 
-const PostFunction = ({ id, active, setActive, curr_user }: any) => {
+const PostFunction = ({
+  id,
+  active,
+  setActive,
+  curr_user,
+  like,
+  setLike,
+}: any) => {
+  console.log(like);
   return (
     <div className="  flex space-x-2 items-center justify-around">
-      <div onClick={() => AddLike(id, curr_user)}>
-        <Icon name={"Likes"} Icon={AiOutlineLike} />
-      </div>
+      {like ? (
+        //! dislike
+        <div
+          onClick={() => {
+            removeLike(id);
+            setLike(false);
+          }}
+        >
+          <Icon name={"dislike"} Icon={AiFillDislike} />
+        </div>
+      ) : (
+        //! Like
+        <div
+          onClick={() => {
+            AddLike(id, curr_user);
+            setLike(true);
+          }}
+        >
+          <Icon name={"like"} Icon={AiOutlineLike} />
+        </div>
+      )}
       {/* comment */}
       <div onClick={() => setActive(!active)}>
         <Icon name={"Comments"} Icon={FaRegCommentDots} />

@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { UseUser } from "../../hooks/UserHook";
 import { GetAllPost } from "../../lib/post.sanity";
 import PostBox from "../post/PostBox";
 import Posts from "../post/Posts";
@@ -13,7 +14,7 @@ const FeedSession = () => {
     };
     fetchPosts();
   }, [refresh]);
-  console.log(posts);
+  UseUser();
   return (
     <div className=" space-y-4 flex flex-col overflow-hidden rounded-xl h-full w-[600px] max-w-[700px]">
       <PostBox setRefresh={setRefresh} refresh={refresh} />
