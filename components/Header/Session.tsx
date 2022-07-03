@@ -25,7 +25,7 @@ export const Session = ({ FaUser }: any) => {
         <div className="center  h-full flex-col">
           <img
             src={image}
-            onClick={() => signOut()}
+            onClick={() => signOut().then(() => window?.location.reload())}
             alt="user"
             className="h-8 w-8 rounded-full cursor-pointer object-contain"
           />
