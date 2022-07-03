@@ -4,8 +4,9 @@ import { AiOutlineLike, AiFillDislike } from "react-icons/ai";
 import { FaRegCommentDots, FaShare } from "react-icons/fa";
 import { FiSend } from "react-icons/fi";
 import TimeAgo from "react-timeago";
+import { toast, ToastContainer } from "react-toastify";
 import { UseUser } from "../../hooks/UserHook";
-import { AddComment, AddLike, removeLike } from "../../lib/post.sanity";
+import { AddLike, removeLike } from "../../lib/post.sanity";
 import CommentBox from "../comment/CommentBox";
 import Comments from "../comment/comments.components";
 import Icon from "../Feed/Icons";
@@ -16,6 +17,7 @@ const Posts = ({ post }: any) => {
 
   return (
     <div className=" flex flex-col  space-y-3 ">
+      <ToastContainer />
       {/* post details */}
       <div className="flex flex-col items-center space-x-3">
         <div className=" flex w-full items-center space-x-4">
@@ -113,6 +115,7 @@ const PostFunction = ({
         //! Like
         <div
           onClick={() => {
+            if (!curr_user) return toast.error("Please login to like");
             AddLike(id, curr_user);
             setLike(true);
           }}

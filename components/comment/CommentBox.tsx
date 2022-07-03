@@ -47,6 +47,8 @@ const CommentBox = ({ id }: Props) => {
             disabled={loading}
             onKeyPress={(e) => {
               if (e.key === "Enter") {
+                if (!user)
+                  return toast.error("You must be logged in to comment");
                 handleSubmit(id, comment?.current.value, user?._id);
                 comment.current.value = "";
               }
@@ -56,6 +58,7 @@ const CommentBox = ({ id }: Props) => {
           <button
             disabled={loading}
             onClick={() => {
+              if (!user) return toast.error("You must be logged in to comment");
               handleSubmit(id, comment?.current.value, user?._id);
               comment.current.value = "";
             }}
