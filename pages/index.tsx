@@ -31,7 +31,7 @@ const Home: NextPage = () => {
   return (
     <div className="flex flex-col overflow-hidden   h-screen bg-black w-full ">
       <Head>
-        <title>Create Next App</title>
+        <title>Linked In clone</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {/* Header */}
