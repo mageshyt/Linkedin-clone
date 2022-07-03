@@ -16,9 +16,12 @@ const NewsCard = () => {
       </div>
       {/* Dummy news */}
       <div>
-        {news.map((item: any) => {
+        {news.map((item: any, idx: number) => {
           return (
-            <div className="p-2 flex flex-col items-start space-y-1 hover:bg-gray-300 hover:bg-opacity-[15%] cursor-pointer ">
+            <div
+              key={idx}
+              className="p-2 flex flex-col items-start space-y-1 hover:bg-gray-300 hover:bg-opacity-[15%] cursor-pointer "
+            >
               {/* title */}
               <span className="text-md text-gray-200">{item?.title}</span>
               {/* description */}

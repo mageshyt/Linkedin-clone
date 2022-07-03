@@ -32,17 +32,22 @@ export const Session = ({ FaUser }: any) => {
           <span className="text-sm hidden md:block">{name}</span>
         </div>
       ) : (
-        <div onClick={() => router.push("/login")}>
-          <Icons name="Login" Icon={FaUser} />
-        </div>
+        <Icons name="Login" Icon={FaUser} router={router} />
       )}
     </div>
   );
 };
 
-const Icons = ({ name, Icon }: any) => {
+const Icons = ({ name, Icon, router }: any) => {
   return (
-    <div className="flex  justify-center mx-2 h-full  space-y-1 items-center flex-col ">
+    <div
+      onClick={() => {
+        if (name == "Login") {
+          router.push("/login");
+        }
+      }}
+      className="flex cursor-pointer  justify-center mx-2 h-full  space-y-1 items-center flex-col "
+    >
       <Icon className="text-2xl" />
       <span className="text-sm hidden md:block">{name}</span>
     </div>

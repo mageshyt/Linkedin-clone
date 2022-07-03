@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React, { useRef } from "react";
 import { AiOutlineLike, AiFillDislike } from "react-icons/ai";
 import { FaRegCommentDots, FaShare } from "react-icons/fa";

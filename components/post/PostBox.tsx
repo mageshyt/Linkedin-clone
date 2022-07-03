@@ -13,6 +13,8 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { customStyles } from "../../lib/data";
 import PostModal from "../Modal/PostModal";
+import { toast, ToastContainer } from "react-toastify";
+
 Modal.setAppElement("#__next");
 const PostBox = ({ setRefresh, refresh }: any) => {
   const user: any = UseUser();
@@ -20,19 +22,25 @@ const PostBox = ({ setRefresh, refresh }: any) => {
   const router = useRouter();
   return (
     <div className="w-full h-[120px] space-y-3 items-center p-2 rounded-xl flex-col bg-[#1d2226]">
+      <ToastContainer />
       {/* Title */}
       <div className="flex  space-x-4 w-full">
         {image && (
           <img src={image} className="sm:h-12 sm:w-12 h-10 w-10 rounded-full" />
         )}
-        <Link href={"/?transfer=1"}>
-          <span
-            className="hover:bg-[#fff] animate hover:bg-opacity-[20%] flex-1 
+
+        <span
+          onClick={() => {
+            if (!user) {
+              return toast.error("You must be logged in to post");
+            }
+            router.push("/?transfer=1");
+          }}
+          className="hover:bg-[#fff] animate hover:bg-opacity-[20%] flex-1 
          text-gray-300 rounded-xl p-3 text-xs cursor-pointer border"
-          >
-            Start a post about a topic that excites you
-          </span>
-        </Link>
+        >
+          Start a post about a topic that excites you
+        </span>
       </div>
       <div className="flex w-full justify-around overflow-x-scroll space-x-3">
         <Icon name={"Image"} Icon={FcAddImage} />
