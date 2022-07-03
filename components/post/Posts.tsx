@@ -100,7 +100,7 @@ const PostFunction = ({
 }: any) => {
   console.log(like);
   return (
-    <div className="  flex space-x-2 items-center justify-around">
+    <div className=" w-full overflow-x-scroll  flex space-x-2 items-center justify-around">
       {like ? (
         //! dislike
         <div
